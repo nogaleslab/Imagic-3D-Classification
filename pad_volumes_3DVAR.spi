@@ -1,0 +1,28 @@
+;;;;;;;;
+
+RR [numVols]
+?Number of volumes?
+
+RR [oldBox]
+?Old box size?
+
+RR [newBox]
+?New, padded box size?
+
+;;;;;;;;
+
+[topLeft]=([newBox]-[oldBox])/2
+
+do lb1 [vol]=1,[numVols]
+
+	PD
+	vol{*****[vol]}
+	vol{*****[vol]}_pd{***[newBox]}
+	[newBox],[newBox],[newBox]
+	(N)
+	(0)
+	[topLeft],[topLeft],[topLeft]
+
+lb1
+
+en d	
